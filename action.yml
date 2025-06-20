@@ -1,0 +1,26 @@
+# action.yml
+name: 'add-user-pool-to-group'
+description: 'Add or remove all users to or from a group.'
+inputs:
+  pool-id:
+    description: 'The user pool ID.'
+    required: true
+    default: ''
+  group:
+    description: 'The group name.'
+    required: true
+    default: ''
+  action:
+    description: 'Whether to add or remove users from the group.'
+    required: true
+    default: ''
+    allowed-values:
+      - 'add'
+      - 'remove'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.pool-id }}
+    - ${{ inputs.group }}
+    - ${{ inputs.action }}
