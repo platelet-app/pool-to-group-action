@@ -60,6 +60,7 @@ for username in $usernames; do
     if [[ $ACTION == "remove" ]]; then
         echo "Removing user $username from group $GROUP"
         aws cognito-idp admin-remove-user-from-group --user-pool-id $USER_POOL --username $username --group-name $GROUP
+        echo "Logging out user $username"
         aws cognito-idp admin-user-global-sign-out --user-pool-id $USER_POOL --username $username
     elif [[ $ACTION == "add" ]]; then
         echo "Adding user $username to group $GROUP"
