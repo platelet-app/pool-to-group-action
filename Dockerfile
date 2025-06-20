@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM alpine:3.19
 
-RUN apk add aws-cli jq
+RUN apk add aws-cli
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
